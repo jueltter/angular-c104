@@ -13,10 +13,13 @@
 
   <div class="col-12 col-sm-6">
     <h3>Listado</h3>
-    <ol>
-      <li>Goku</li>
-      <li>Vegeta</li>
-      <li>Gohan</li>
-    </ol>
+    <ul>
+      @for (item of characters(); track item.id; let idx = $index) {
+        <li>
+          <span>{{idx +1}} - {{ item.name }}</span>
+          <strong class="text-danger"> ({{ item.power }})</strong>
+        </li>
+      }
+    </ul>
   </div>
 </section>
