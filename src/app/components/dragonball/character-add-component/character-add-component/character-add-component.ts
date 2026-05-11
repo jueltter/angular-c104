@@ -22,7 +22,7 @@ if ( !this.name() || !this.power() || this.power() <= 0 ) return;
       power: this.power()
     };
 
-    console.log('Character Added:', { name: this.name(), power: this.power() });
+    console.log({newCharacter});
 
     // this.characters.update(chars => [...chars, newCharacter]);
     this.resetFields();
