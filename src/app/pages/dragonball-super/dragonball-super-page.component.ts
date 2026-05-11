@@ -1,8 +1,9 @@
 import { NgClass } from '@angular/common';
-import { Component, signal, computed } from '@angular/core';
+import { Component, signal, computed, inject } from '@angular/core';
 import { CharacterListComponent } from "../../components/dragonball/character-list-component/character-list-component";
 import { Character } from '../../interfaces/character.interface';
 import { CharacterAddComponent } from "../../components/dragonball/character-add-component/character-add-component/character-add-component";
+import { DragonBallService } from '../../services/dragonball.service';
 
 
 
@@ -15,15 +16,6 @@ import { CharacterAddComponent } from "../../components/dragonball/character-add
 ]
 })
 export class DragonballSuperPageComponent {
-
-
-
-
-  characters = signal<Character[]>([
-    { id: 1, name: 'Goku', power: 10000 },
-    { id: 2, name: 'Vegeta', power: 8500 }
-  ]);
-
   powerClasses = computed(() => {
     return {
       'text-danger': true,
@@ -31,11 +23,8 @@ export class DragonballSuperPageComponent {
 
   });
 
-	constructor() {}
+  public dragonballService = inject(DragonBallService);
 
-
-  addCharacter(character: Character) {
-    this.characters.update(chars => [...chars, character]);
-  }
+	//constructor(public dragonballService: DragonBallService) {}
 
 }
