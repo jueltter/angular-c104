@@ -23,26 +23,11 @@
   </div>
 
   <div class="col-12 col-sm-6">
-    <h3>Listado</h3>
-    <ul>
-      @for (item of characters(); track item.id; let idx = $index) {
-        @if (item.power > 500) {
-        <li>
-          <span>{{idx +1}} - {{ item.name }}</span>
-          <strong [class.text-danger]="item.power > 9000"
-            [class.text-primary]="item.power < 9000">
-            <!--[ngClass]="powerClasses()"-->
-             ({{ item.power }})</strong>
-        </li>
-        } @else {
-          <li>
-          <span>{{idx +1}} - </span>
-          <strong>No powerful character</strong>
-          </li>
+    <dragonball-character-list
+     [characters]="characters()"
+    ></dragonball-character-list>
 
-        }
 
-      }
-    </ul>
+
   </div>
 </section>

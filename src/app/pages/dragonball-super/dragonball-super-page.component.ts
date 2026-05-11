@@ -1,18 +1,16 @@
 import { NgClass } from '@angular/common';
 import { Component, signal, computed } from '@angular/core';
+import { CharacterListComponent } from "../../components/dragonball/cahracter-list-component/character-list-component";
+import { Character } from '../../interfaces/character.interface';
 
-interface Character {
-  id: number;
-  name: string;
-  power: number;
-}
+
 
 @Component({
 	templateUrl: './dragonball-super-page.component.html',
   styleUrl: './dragonball-super-page.component.css',
   imports: [
-   // NgClass
-  ]
+    CharacterListComponent
+]
 })
 export class DragonballSuperPageComponent {
 
@@ -44,7 +42,7 @@ export class DragonballSuperPageComponent {
     };
 
     this.characters.update(chars => [...chars, newCharacter]);
-    this.resetFields
+    this.resetFields();
   }
 
   resetFields(){
