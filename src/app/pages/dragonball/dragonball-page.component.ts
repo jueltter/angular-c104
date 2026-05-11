@@ -37,8 +37,20 @@ export class DragonballPageComponent {
 	constructor() {}
 
   addCharacter() {
-    this.characters.update(chars => [...chars, { id: chars.length + 1, name: this.name(), power: this.power() }]);
-    this.name.set('');
+    if ( !this.name() || !this.power() || this.power() <= 0 ) return;
+
+    const newCharacter: Character = {
+      id: this.characters().length + 1,
+      name: this.name(),
+      power: this.power()
+    };
+
+    this.characters.update(chars => [...chars, newCharacter]);
+    this.resetFields
+  }
+
+  resetFields(){
+this.name.set('');
     this.power.set(0);
   }
 }
