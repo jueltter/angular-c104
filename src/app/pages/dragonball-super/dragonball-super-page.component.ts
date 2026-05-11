@@ -34,4 +34,8 @@ export class DragonballSuperPageComponent {
 	constructor() {}
 
 
+  addCharacter(character: Character) {
+    this.characters.update(chars => [...chars, character]);
+  }
+
 }
